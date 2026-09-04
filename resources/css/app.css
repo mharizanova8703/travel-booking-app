@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html { scroll-behavior: smooth; }
+    body { @apply bg-sand text-ink antialiased transition-colors duration-300 dark:bg-[#0b1210] dark:text-stone-100; }
+    [x-cloak] { display: none !important; }
+    ::selection { @apply bg-lagoon-400 text-white; }
+}
+
+@layer components {
+    .glass { @apply border border-white/60 bg-white/75 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[#111b18]/75; }
+    .nav-link { @apply rounded-full px-4 py-2 text-sm font-semibold text-stone-600 transition hover:bg-stone-100 hover:text-ink dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white; }
+    .icon-button { @apply grid size-10 place-items-center rounded-full border border-stone-200 bg-white/70 text-stone-700 transition duration-300 hover:-translate-y-0.5 hover:border-lagoon-400 hover:text-lagoon-600 dark:border-white/10 dark:bg-white/5 dark:text-stone-200; }
+}
+
+.hero-grid {
+    background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
