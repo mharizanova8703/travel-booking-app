@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f8875">
+    <title>Curated stays, unforgettable journeys · Roamly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        (() => {
+            const preference = localStorage.getItem('roamly-theme');
+            const dark = preference === 'dark' || (!preference && matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+        })();
+    </script>
+    <link rel="preload" as="style" href="./build/assets/app-ChZJ1Z2N.css" /><link rel="modulepreload" href="./build/assets/app-C2_FLLC4.js" /><link rel="stylesheet" href="./build/assets/app-ChZJ1Z2N.css" data-navigate-track="reload" /><script type="module" src="./build/assets/app-C2_FLLC4.js" data-navigate-track="reload"></script>    <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="./static.js"></script>
+</head>
+<body x-data="{ mobileOpen: false, theme: document.documentElement.classList.contains('dark') }"
+      @keydown.escape.window="mobileOpen = false"
+      class="min-h-screen overflow-x-hidden">
+    <header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-5">
+        <nav class="glass mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl px-4 sm:px-6" aria-label="Primary navigation">
+            <a href="./" wire:navigate class="group flex items-center gap-2.5" aria-label="Roamly home">
+                <span class="grid size-9 place-items-center rounded-xl bg-lagoon-600 text-white shadow-glow transition group-hover:rotate-6">
+                    <i data-lucide="navigation" class="size-5"></i>
+                </span>
+                <span class="text-lg font-extrabold tracking-tight">roamly<span class="text-lagoon-500">.</span></span>
+            </a>
+
+            <div class="hidden items-center gap-1 lg:flex">
+                <a class="nav-link" href="#discover">Discover</a>
+                <a class="nav-link" href="#stays">Stays</a>
+                <a class="nav-link" href="#experiences">Experiences</a>
+                <a class="nav-link" href="#journal">Travel journal</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button class="icon-button" type="button"
+                        @click="theme = !theme; document.documentElement.classList.toggle('dark', theme); localStorage.setItem('roamly-theme', theme ? 'dark' : 'light')"
+                        :aria-label="theme ? 'Switch to light mode' : 'Switch to dark mode'">
+                    <i x-show="!theme" data-lucide="moon" class="size-[18px]"></i>
+                    <i x-show="theme" x-cloak data-lucide="sun" class="size-[18px]"></i>
+                </button>
+                <a href="#" class="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-lagoon-700 dark:bg-white dark:text-ink sm:block">Sign in</a>
+                <button class="icon-button lg:hidden" type="button" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen" aria-controls="mobile-menu" aria-label="Toggle menu">
+                    <i x-show="!mobileOpen" data-lucide="menu" class="size-5"></i>
+                    <i x-show="mobileOpen" x-cloak data-lucide="x" class="size-5"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" x-show="mobileOpen" x-cloak
+             x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-3" x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-3"
+             @click.outside="mobileOpen = false"
+             class="glass mx-auto mt-2 max-w-7xl rounded-2xl p-3 lg:hidden">
+            <div class="grid gap-1">
+                <a class="nav-link" href="#discover" @click="mobileOpen = false">Discover</a>
+                <a class="nav-link" href="#stays" @click="mobileOpen = false">Stays</a>
+                <a class="nav-link" href="#experiences" @click="mobileOpen = false">Experiences</a>
+                <a class="nav-link" href="#journal" @click="mobileOpen = false">Travel journal</a>
+                <a class="mt-2 rounded-xl bg-ink px-4 py-3 text-center text-sm font-bold text-white dark:bg-white dark:text-ink sm:hidden" href="#">Sign in</a>
+            </div>
+        </div>
+    </header>
+
+    <main><div wire:snapshot="{&quot;data&quot;:{&quot;wishlist&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}]},&quot;memo&quot;:{&quot;id&quot;:&quot;CJ3Ti1RIUryMEgDSz43h&quot;,&quot;name&quot;:&quot;home-page&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;45466bda7294521dce6023fb8ebdfdabc2ec7e8904f0594513de1a6914f6c16b&quot;}" wire:effects="[]" wire:id="CJ3Ti1RIUryMEgDSz43h">
+    <section class="relative isolate min-h-[760px] overflow-hidden bg-[#123d36] px-5 pb-24 pt-32 text-white sm:px-8 sm:pt-40 lg:min-h-[820px]">
+        <div class="hero-grid absolute inset-0 opacity-30"></div>
+        <div class="absolute -left-28 top-32 size-80 rounded-full bg-lagoon-400/20 blur-3xl"></div>
+        <div class="absolute -right-20 bottom-10 size-96 rounded-full bg-amber-300/15 blur-3xl"></div>
+
+        <div class="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
+            <div class="animate-fade-up">
+                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-[.18em] backdrop-blur">
+                    <span class="size-2 animate-pulse rounded-full bg-amber-300"></span> Your world, beautifully curated
+                </div>
+                <h1 class="max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-[-.045em] sm:text-6xl lg:text-7xl">Find the places<br><span class="text-[#99eadb]">you'll never forget.</span></h1>
+                <p class="mt-6 max-w-xl text-base leading-7 text-white/70 sm:text-lg">Handpicked stays, extraordinary escapes, and local stories—thoughtfully gathered for your next chapter.</p>
+
+                <div x-data="{ focused: false }" class="mt-9 max-w-3xl rounded-[1.6rem] bg-white p-2 text-ink shadow-2xl transition duration-300 dark:bg-[#101b18] dark:text-white" :class="focused && 'ring-4 ring-lagoon-300/25 scale-[1.01]'">
+                    <form class="grid gap-1 sm:grid-cols-[1.4fr_1fr_1fr_auto]" @focusin="focused = true" @focusout="focused = false">
+                        <label class="flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-stone-100 dark:hover:bg-white/5">
+                            <i data-lucide="map-pin" class="size-5 text-lagoon-600"></i>
+                            <span class="min-w-0"><span class="block text-[10px] font-bold uppercase tracking-widest text-stone-400">Where</span><input class="w-full border-0 bg-transparent p-0 text-sm font-semibold placeholder:text-stone-500 focus:ring-0" placeholder="Search destinations"></span>
+                        </label>
+                        <label class="flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-stone-100 dark:hover:bg-white/5">
+                            <i data-lucide="calendar-days" class="size-5 text-lagoon-600"></i><span><span class="block text-[10px] font-bold uppercase tracking-widest text-stone-400">Dates</span><input type="text" class="w-full border-0 bg-transparent p-0 text-sm font-semibold placeholder:text-stone-500 focus:ring-0" placeholder="Add dates"></span>
+                        </label>
+                        <label class="flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-stone-100 dark:hover:bg-white/5">
+                            <i data-lucide="users" class="size-5 text-lagoon-600"></i><span><span class="block text-[10px] font-bold uppercase tracking-widest text-stone-400">Guests</span><input type="text" class="w-full border-0 bg-transparent p-0 text-sm font-semibold placeholder:text-stone-500 focus:ring-0" placeholder="2 travelers"></span>
+                        </label>
+                        <button type="button" class="grid min-h-14 place-items-center rounded-2xl bg-lagoon-600 px-6 font-bold text-white shadow-glow transition hover:scale-[1.03] hover:bg-lagoon-700" aria-label="Search"><i data-lucide="search" class="size-5"></i><span class="sm:hidden">Search</span></button>
+                    </form>
+                </div>
+
+                <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/65">
+                    <span class="flex items-center gap-2"><i data-lucide="shield-check" class="size-4 text-[#99eadb]"></i> Verified stays</span>
+                    <span class="flex items-center gap-2"><i data-lucide="headphones" class="size-4 text-[#99eadb]"></i> 24/7 support</span>
+                    <span class="flex items-center gap-2"><i data-lucide="badge-check" class="size-4 text-[#99eadb]"></i> Best price promise</span>
+                </div>
+            </div>
+
+            <div class="relative hidden min-h-[510px] lg:block" aria-hidden="true">
+                <div class="absolute right-5 top-3 h-[460px] w-[360px] animate-float overflow-hidden rounded-[2.4rem] border border-white/15 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85" alt="" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+                    <div class="absolute bottom-7 left-7"><p class="text-xs font-bold uppercase tracking-[.2em] text-white/70">Hidden gem</p><p class="mt-1 text-2xl font-extrabold">Nusa Penida</p><p class="text-sm text-white/70">Bali, Indonesia</p></div>
+                </div>
+                <div class="glass absolute bottom-4 left-2 flex items-center gap-3 rounded-2xl p-3 text-ink shadow-2xl dark:text-white">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=160&q=80" class="size-14 rounded-xl object-cover" alt="">
+                    <div class="pr-3"><p class="text-xs text-stone-500">Travelers love it</p><p class="font-extrabold">4.9 <span class="text-amber-400">★</span></p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="discover" class="px-5 py-20 sm:px-8 lg:py-28">
+        <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div><p class="text-xs font-extrabold uppercase tracking-[.22em] text-lagoon-600">Trending now</p><h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Places worth the journey.</h2></div>
+                <a href="#" class="group flex items-center gap-2 text-sm font-bold text-lagoon-700 dark:text-lagoon-400">Explore all destinations <i data-lucide="arrow-right" class="size-4 transition group-hover:translate-x-1"></i></a>
+            </div>
+
+            <div x-data="{ category: 'All' }" class="mt-8">
+                <div class="flex gap-2 overflow-x-auto pb-4 [scrollbar-width:none]">
+                    <!--[if BLOCK]><![endif]-->                        <button @click="category = 'All'" :class="category === 'All' ? 'bg-ink text-white dark:bg-white dark:text-ink' : 'bg-white text-stone-600 dark:bg-white/5 dark:text-stone-300'" class="flex shrink-0 items-center gap-2 rounded-full border border-stone-200/70 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10"><i data-lucide="sparkles" class="size-4"></i>All</button>
+                                            <button @click="category = 'Coastal'" :class="category === 'Coastal' ? 'bg-ink text-white dark:bg-white dark:text-ink' : 'bg-white text-stone-600 dark:bg-white/5 dark:text-stone-300'" class="flex shrink-0 items-center gap-2 rounded-full border border-stone-200/70 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10"><i data-lucide="waves" class="size-4"></i>Coastal</button>
+                                            <button @click="category = 'Nature'" :class="category === 'Nature' ? 'bg-ink text-white dark:bg-white dark:text-ink' : 'bg-white text-stone-600 dark:bg-white/5 dark:text-stone-300'" class="flex shrink-0 items-center gap-2 rounded-full border border-stone-200/70 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10"><i data-lucide="mountain" class="size-4"></i>Nature</button>
+                                            <button @click="category = 'Culture'" :class="category === 'Culture' ? 'bg-ink text-white dark:bg-white dark:text-ink' : 'bg-white text-stone-600 dark:bg-white/5 dark:text-stone-300'" class="flex shrink-0 items-center gap-2 rounded-full border border-stone-200/70 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10"><i data-lucide="building-2" class="size-4"></i>Culture</button>
+                                            <button @click="category = 'Tropical'" :class="category === 'Tropical' ? 'bg-ink text-white dark:bg-white dark:text-ink' : 'bg-white text-stone-600 dark:bg-white/5 dark:text-stone-300'" class="flex shrink-0 items-center gap-2 rounded-full border border-stone-200/70 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10"><i data-lucide="sun" class="size-4"></i>Tropical</button>
+                    <!--[if ENDBLOCK]><![endif]-->                </div>
+
+                <div class="-mx-5 mt-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-8 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0">
+                    <!--[if BLOCK]><![endif]-->                        <article x-show="category === 'All' || category === 'Coastal'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Amalfi Coast, Italy" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Coastal</span>
+                                <button wire:click="toggleWishlist('Amalfi Coast')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Amalfi Coast">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Italy</p><h3 class="mt-1 text-2xl font-extrabold">Amalfi Coast</h3><p class="mt-1 text-xs text-white/70">Sunlit villages &amp; secret coves</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$289<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.96 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                                            <article x-show="category === 'All' || category === 'Culture'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Kyoto, Japan" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Culture</span>
+                                <button wire:click="toggleWishlist('Kyoto')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Kyoto">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Japan</p><h3 class="mt-1 text-2xl font-extrabold">Kyoto</h3><p class="mt-1 text-xs text-white/70">Temples, tea &amp; timeless streets</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$214<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.92 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                                            <article x-show="category === 'All' || category === 'Nature'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Banff, Canada" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Nature</span>
+                                <button wire:click="toggleWishlist('Banff')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Banff">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Canada</p><h3 class="mt-1 text-2xl font-extrabold">Banff</h3><p class="mt-1 text-xs text-white/70">Wild peaks &amp; turquoise lakes</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$248<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.89 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                                            <article x-show="category === 'All' || category === 'Culture'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Marrakech, Morocco" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Culture</span>
+                                <button wire:click="toggleWishlist('Marrakech')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Marrakech">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Morocco</p><h3 class="mt-1 text-2xl font-extrabold">Marrakech</h3><p class="mt-1 text-xs text-white/70">Riads, souks &amp; desert skies</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$176<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.94 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                                            <article x-show="category === 'All' || category === 'Coastal'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Santorini, Greece" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Coastal</span>
+                                <button wire:click="toggleWishlist('Santorini')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Santorini">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Greece</p><h3 class="mt-1 text-2xl font-extrabold">Santorini</h3><p class="mt-1 text-xs text-white/70">Caldera views &amp; slow sunsets</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$315<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.91 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                                            <article x-show="category === 'All' || category === 'Tropical'" x-transition class="group min-w-[82vw] snap-center sm:min-w-[390px] lg:min-w-0">
+                            <div class="relative h-[390px] overflow-hidden rounded-[2rem] bg-stone-200">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Tulum, Mexico" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10"></div>
+                                <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-extrabold text-ink backdrop-blur">Tropical</span>
+                                <button wire:click="toggleWishlist('Tulum')" wire:loading.attr="disabled" class="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-ink backdrop-blur transition hover:scale-110" aria-label="Save Tulum">
+                                    <i data-lucide="heart" class="size-5 transition "></i>
+                                </button>
+                                <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div class="flex items-end justify-between gap-4"><div><p class="text-sm text-white/70">Mexico</p><h3 class="mt-1 text-2xl font-extrabold">Tulum</h3><p class="mt-1 text-xs text-white/70">Jungle calm &amp; Caribbean blue</p></div><div class="rounded-xl bg-white/15 px-3 py-2 text-right backdrop-blur"><p class="text-xs text-white/70">from</p><p class="font-extrabold">$195<span class="text-xs font-normal">/night</span></p></div></div>
+                                    <div class="mt-4 flex items-center justify-between border-t border-white/20 pt-4 text-xs"><span class="flex items-center gap-1"><i data-lucide="star" class="size-3.5 fill-amber-300 text-amber-300"></i> 4.87 guest rating</span><span class="font-bold transition group-hover:translate-x-1">View escape →</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    <!--[if ENDBLOCK]><![endif]-->                </div>
+                <p class="text-center text-xs text-stone-400 lg:hidden">Swipe to explore <span class="ml-1">→</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stays" class="bg-white/60 px-5 py-20 dark:bg-white/[.025] sm:px-8 lg:py-28">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid items-center gap-12 lg:grid-cols-2">
+                <div class="relative min-h-[520px]">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="A private villa overlooking the ocean" loading="lazy" class="absolute inset-y-0 left-0 h-[470px] w-[88%] rounded-[2.3rem] object-cover shadow-soft">
+                    <div class="glass absolute bottom-0 right-0 max-w-[260px] rounded-3xl p-5">
+                        <div class="flex -space-x-2">
+                            <!--[if BLOCK]><![endif]--><img src="https://i.pravatar.cc/80?img=64" alt="" class="size-9 rounded-full border-2 border-white object-cover dark:border-ink"><img src="https://i.pravatar.cc/80?img=65" alt="" class="size-9 rounded-full border-2 border-white object-cover dark:border-ink"><img src="https://i.pravatar.cc/80?img=66" alt="" class="size-9 rounded-full border-2 border-white object-cover dark:border-ink"><img src="https://i.pravatar.cc/80?img=68" alt="" class="size-9 rounded-full border-2 border-white object-cover dark:border-ink"><!--[if ENDBLOCK]><![endif]-->                        </div>
+                        <p class="mt-3 text-sm font-extrabold">Loved by 38k+ travelers</p><p class="mt-1 text-xs leading-5 text-stone-500">Real places. Honest reviews. Exceptional memories.</p>
+                    </div>
+                    <button class="absolute left-6 top-6 grid size-14 place-items-center rounded-full bg-white text-ink shadow-xl transition hover:scale-110" aria-label="Play the Roamly story"><i data-lucide="play" class="ml-0.5 size-5 fill-current"></i></button>
+                </div>
+                <div>
+                    <p class="text-xs font-extrabold uppercase tracking-[.22em] text-lagoon-600">The Roamly difference</p>
+                    <h2 class="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">Not just somewhere to stay. <span class="text-lagoon-600">Somewhere to feel.</span></h2>
+                    <p class="mt-6 max-w-xl leading-7 text-stone-500 dark:text-stone-400">We visit, verify, and handpick every escape. From a cliffside casa to a cabin beneath the northern lights, each place has a story worth stepping into.</p>
+                    <div class="mt-8 grid grid-cols-3 gap-4 border-y border-stone-200 py-7 dark:border-white/10">
+                        <!--[if BLOCK]><![endif]--><div><p class="text-2xl font-extrabold text-lagoon-600 sm:text-3xl">12k+</p><p class="mt-1 text-xs text-stone-500">Curated stays</p></div><div><p class="text-2xl font-extrabold text-lagoon-600 sm:text-3xl">120</p><p class="mt-1 text-xs text-stone-500">Countries</p></div><div><p class="text-2xl font-extrabold text-lagoon-600 sm:text-3xl">4.9/5</p><p class="mt-1 text-xs text-stone-500">Guest love</p></div><!--[if ENDBLOCK]><![endif]-->                    </div>
+                    <a href="#" class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-1 hover:shadow-xl dark:bg-white dark:text-ink">How we choose stays <i data-lucide="arrow-right" class="size-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="px-5 py-20 sm:px-8 lg:py-28">
+        <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17201d] text-white">
+            <div class="grid lg:grid-cols-[.9fr_1.1fr]">
+                <div class="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
+                    <i data-lucide="quote" class="size-10 text-lagoon-400"></i>
+                    <blockquote class="mt-7 text-2xl font-semibold leading-relaxed sm:text-3xl">“Roamly found us the kind of place we would never have discovered ourselves—a tiny home above the clouds.”</blockquote>
+                    <div class="mt-8 flex items-center gap-4"><img src="https://i.pravatar.cc/100?img=47" alt="Maya Chen" class="size-12 rounded-full object-cover"><div><p class="font-bold">Maya Chen</p><p class="text-sm text-white/50">Lisbon → Madeira</p></div></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85" alt="Traveler overlooking a mountain landscape" loading="lazy" class="h-full min-h-[420px] w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section id="journal" class="px-5 pb-20 sm:px-8 lg:pb-28">
+        <div class="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-lagoon-600 to-[#0e5c51] px-7 py-14 text-center text-white sm:px-14 sm:py-20">
+            <div class="hero-grid absolute inset-0 opacity-20"></div><div class="absolute -left-20 -top-20 size-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="relative mx-auto max-w-2xl"><p class="text-xs font-bold uppercase tracking-[.25em] text-lagoon-100">Your next chapter</p><h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">The world is waiting.<br>Where will you go?</h2><p class="mx-auto mt-5 max-w-lg text-sm leading-6 text-white/70">Tell us what moves you, and we’ll turn it into a journey that feels unmistakably yours.</p><button class="mt-8 rounded-full bg-white px-7 py-4 text-sm font-extrabold text-lagoon-700 shadow-xl transition hover:-translate-y-1 hover:scale-105">Start planning your escape</button></div>
+        </div>
+    </section>
+</div></main>
+
+    <div x-data="{ show: false, message: '', type: 'success', timer: null }"
+         @toast.window="message = $event.detail.message; type = $event.detail.type; show = true; clearTimeout(timer); timer = setTimeout(() => show = false, 3200)"
+         x-show="show" x-cloak
+         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-5 scale-95" x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+         x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 translate-y-3"
+         class="fixed bottom-5 left-1/2 z-[70] flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/20 bg-ink px-5 py-4 text-sm font-semibold text-white shadow-2xl dark:bg-white dark:text-ink">
+        <span class="grid size-7 place-items-center rounded-full bg-lagoon-500 text-white"><i data-lucide="heart" class="size-4"></i></span>
+        <span x-text="message"></span>
+    </div>
+
+    <footer class="border-t border-stone-200/80 px-5 py-8 dark:border-white/10">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 text-sm text-stone-500 sm:flex-row">
+            <p>© 2026 Roamly. Go where you feel alive.</p>
+            <div class="flex gap-5"><a class="hover:text-lagoon-600" href="#">Privacy</a><a class="hover:text-lagoon-600" href="#">Terms</a></div>
+        </div>
+    </footer>
+    <!-- Livewire Scripts -->
+
+</body>
+</html>

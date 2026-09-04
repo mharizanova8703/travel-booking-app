@@ -24,6 +24,8 @@ docker run --rm -v "$PWD":/app -w /app composer:2 install
 
 Open [http://localhost](http://localhost).
 
+Static interface demo: [mharizanova8703.github.io/travel-booking-app](https://mharizanova8703.github.io/travel-booking-app/). GitHub Pages cannot run Laravel, PHP, Livewire, MySQL, or Redis, so this hosted version demonstrates the interface and client-side interactions only.
+
 > Laravel 11 is end-of-life. This project retains it to match the requested stack and disables Composer's insecure-package blocking for installation. Upgrade the framework before a production release.
 
 ## Current features
